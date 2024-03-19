@@ -1,6 +1,7 @@
 import {SubmitHandler, useForm} from "react-hook-form";
 import React from "react";
 import "./auth-form.css"
+import {useNavigate} from "react-router-dom";
 
 interface AuthFormValues {
     email: string,
@@ -10,6 +11,7 @@ interface AuthFormValues {
 const AuthForm = () => {
     const {register, handleSubmit, formState: {errors}} = useForm<AuthFormValues>();
 
+    const navigate = useNavigate()
     const submit: SubmitHandler<AuthFormValues> = data => {
         console.log(data);
     }
@@ -22,6 +24,10 @@ const AuthForm = () => {
     const handlePasswordChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const password = event.target.value;
         isValidPassword(password);
+    }
+
+    function handleLoginClick() {
+        navigate("/registration")
     }
 
     return (
@@ -41,10 +47,12 @@ const AuthForm = () => {
                     onChange={handlePasswordChange}
                 />
                 {errors.password && errors.password.type === "isValid" && (
-                    <p className="auth-form__error">Password must be 6-16 characters long and can contain letters, numbers, and special
+                    <p className="auth-form__error">Password must be 6-16 characters long and can contain letters,
+                        numbers, and special
                         characters</p>
                 )}
                 <button type="submit" className="auth-form__button">Увійти</button>
+                <a className="registration-form__href__login" onClick={handleLoginClick}>Ще не маєш аккаунт?</a>
             </form>
         </div>
     );

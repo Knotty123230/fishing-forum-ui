@@ -37,6 +37,9 @@
     width: 100%;
     padding: 15px;
     background-color: #007bff;
+    font-family: "Roboto", monospace;
+    font-size: 15px;
+    margin-bottom: 5px;
     color: white;
     border: none;
     border-radius: 5px;
@@ -59,4 +62,19 @@
 
 .registration-form__button:active {
     transform: translateY(1px);
+}
+.registration-form__href__login {
+    margin-top: 5px;
+    font-family: "Roboto", monospace;
+    font-size: 12px;
+    text-decoration: none;
+    color: #007bff;
+    cursor: pointer;
+    transition: color 0.3s ease, text-decoration 0.3s ease; /* Анімація зміни кольору та підкреслення */
+    font-weight: bold; /* Зробимо текст жирним */
+}
+
+.registration-form__href__login:hover {
+    color: #0056b3;
+    text-decoration: underline; /* Підкреслюємо посилання при наведенні */
 }

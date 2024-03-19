@@ -1,6 +1,7 @@
 import React from "react";
 import {SubmitHandler, useForm} from "react-hook-form";
 import "./registration-form.css"
+import {useNavigate} from "react-router-dom";
 
 interface IRegistrationValues {
     email: string;
@@ -13,6 +14,7 @@ interface IRegistrationValues {
 
 const RegistrationForm: React.FC = () => {
     const {register, handleSubmit, formState: {errors}, watch} = useForm<IRegistrationValues>();
+    const navigate = useNavigate()
     const onSubmit: SubmitHandler<IRegistrationValues> = (data) => {
         console.log(data);
     };
@@ -21,6 +23,10 @@ const RegistrationForm: React.FC = () => {
     const email = React.useRef({})
     password.current = watch("password", "");
     email.current = watch("email", "")
+
+    function handleLoginClick() {
+        navigate("/")
+    }
 
     return (
         <div className="registration-form__container">
@@ -46,12 +52,14 @@ const RegistrationForm: React.FC = () => {
                 <input className="registration-form__input" type="text"
                        placeholder="введіть прізвище" {...register("lastName", {required: true})} />
                 <input className="registration-form__input" type="email"
-                       placeholder="введіть email" {...register("email", {required: true, minLength: 5,
+                       placeholder="введіть email" {...register("email", {
+                    required: true, minLength: 5,
 
-                    pattern:{
-                        value:  /^([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})$/,
+                    pattern: {
+                        value: /^([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})$/,
                         message: "email не валідний"
-                    },})}/>
+                    },
+                })}/>
                 {errors.email && errors.email.type === 'pattern' && (
                     <p className="registration-form__error">{errors.email.message}</p>
                 )}
@@ -81,6 +89,7 @@ const RegistrationForm: React.FC = () => {
                 />
                 {errors.confirmPassword && <p className="registration-form__error">{errors.confirmPassword.message}</p>}
                 <button className="registration-form__button" type="submit">Зареєструватись</button>
+                <a className="registration-form__href__login" onClick={handleLoginClick}>Вже маєш аккаунт?</a>
             </form>
         </div>
     );
