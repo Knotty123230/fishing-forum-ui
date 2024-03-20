@@ -47,13 +47,14 @@ const AuthForm = () => {
                     onChange={handlePasswordChange}
                 />
                 {errors.password && errors.password.type === "isValid" && (
-                    <p className="auth-form__error">Password must be 6-16 characters long and can contain letters,
-                        numbers, and special
-                        characters</p>
+                    <p className="auth-form__error">
+                        Пароль має бути від 6 до 16 символів довжиною і може включати цифри, спеціальні символи, тире
+                    </p>
                 )}
                 <button type="submit" className="auth-form__button">Увійти</button>
                 <a className="auth-form__href__login" onClick={handleLoginClick}>
-                    <img className="auth-form__image" src="/public/icons8-register-30.png" alt="Registration"/> Ще не маєш аккаунта?
+                    <img className="auth-form__image" src="/public/icons8-register-30.png" alt="Registration"/>
+                    Ще не маєш аккаунта?
                 </a>
             </form>
         </div>
