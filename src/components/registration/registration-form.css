@@ -64,17 +64,22 @@
     transform: translateY(1px);
 }
 .registration-form__href__login {
-    margin-top: 5px;
+    margin-top: 10px;
     font-family: "Roboto", monospace;
     font-size: 12px;
     text-decoration: none;
     color: #007bff;
     cursor: pointer;
-    transition: color 0.3s ease, text-decoration 0.3s ease; /* Анімація зміни кольору та підкреслення */
-    font-weight: bold; /* Зробимо текст жирним */
+    transition: color 0.3s ease, text-decoration 0.3s ease;
+    font-weight: bold;
 }
 
 .registration-form__href__login:hover {
     color: #0056b3;
-    text-decoration: underline; /* Підкреслюємо посилання при наведенні */
+    text-decoration: underline;
+}
+
+.registration-form__image {
+    vertical-align: bottom;
+    margin-right: 5px;
 }

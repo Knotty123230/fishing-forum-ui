@@ -89,7 +89,10 @@ const RegistrationForm: React.FC = () => {
                 />
                 {errors.confirmPassword && <p className="registration-form__error">{errors.confirmPassword.message}</p>}
                 <button className="registration-form__button" type="submit">Зареєструватись</button>
-                <a className="registration-form__href__login" onClick={handleLoginClick}>Вже маєш аккаунт?</a>
+                <a className="registration-form__href__login" onClick={handleLoginClick}>
+                    <img className="registration-form__image" src="/public/icons8-person-24(1).png" alt="Login"/>
+                    Вже маєш аккаунт?
+                </a>
             </form>
         </div>
     );

@@ -41,7 +41,7 @@
     background-color: #007bff;
     font-family: "Roboto", monospace;
     font-size: 15px;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
     color: white;
     border: none;
     border-radius: 5px;
@@ -65,19 +65,27 @@
     margin-bottom: 5px;
     text-align: center;
 }
-.registration-form__href__login {
-    margin-top: 5px;
+
+
+.auth-form__href__login {
+    margin-top: 10px; 
     font-family: "Roboto", monospace;
     font-size: 12px;
     text-decoration: none;
     color: #007bff;
     cursor: pointer;
     transition: color 0.3s ease, text-decoration 0.3s ease;
-    font-weight: bold; /* Зробимо текст жирним */
+    font-weight: bold;
 }
 
-.registration-form__href__login:hover {
+.auth-form__href__login:hover {
     color: #0056b3;
     text-decoration: underline;
 }
+
+.auth-form__image {
+    vertical-align: -8px;
+    margin-right: 5px;
+}
+
 

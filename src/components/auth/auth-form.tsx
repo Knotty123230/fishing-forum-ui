@@ -52,7 +52,9 @@ const AuthForm = () => {
                         characters</p>
                 )}
                 <button type="submit" className="auth-form__button">Увійти</button>
-                <a className="registration-form__href__login" onClick={handleLoginClick}>Ще не маєш аккаунт?</a>
+                <a className="auth-form__href__login" onClick={handleLoginClick}>
+                    <img className="auth-form__image" src="/public/icons8-register-30.png" alt="Registration"/> Ще не маєш аккаунта?
+                </a>
             </form>
         </div>
     );
