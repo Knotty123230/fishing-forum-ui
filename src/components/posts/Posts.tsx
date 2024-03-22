@@ -1,6 +1,8 @@
 import React, {useState} from "react";
 import "./Posts.css";
 import Modal from "../Modal.tsx";
+import Post from "./post-page/Post.tsx"
+import {useNavigate} from "react-router-dom";
 
 interface Post {
     id: number;
@@ -30,7 +32,7 @@ const Posts: React.FC = () => {
     const [posts, setPosts] = useState<Post[]>([
         {
             id: 1,
-            name: "Перший пост",
+            name: "Перший пост ццвфцвфцвфц",
             description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
             userId: 1,
             likes: 20,
@@ -54,7 +56,7 @@ const Posts: React.FC = () => {
             likes: 30,
             photoUrl: "public/pexels-eberhard-grossgasteiger-2098405.jpg",
             date: "11.01.2024"
-        },{
+        }, {
             id: 4,
             name: "Третій пост",
             description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
@@ -62,7 +64,7 @@ const Posts: React.FC = () => {
             likes: 30,
             photoUrl: "public/thumb-1920-367772-1868409394.jpg",
             date: "11.01.2024"
-        },{
+        }, {
             id: 5,
             name: "Третій пост",
             description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
@@ -91,6 +93,8 @@ const Posts: React.FC = () => {
     const [showModal, setShowModal] = useState(false);
     const [modalImageUrl, setModalImageUrl] = useState("");
 
+    const navigate = useNavigate()
+
     const handleOpenModal = (imageUrl: string) => {
         setModalImageUrl(imageUrl);
         setShowModal(true);
@@ -108,14 +112,20 @@ const Posts: React.FC = () => {
         setPosts(updatedPosts);
     };
 
+
+    function openPost(id: number) {
+        navigate("/post", {state: id})
+    }
+
     return (
         <div className="posts_container">
             {posts.map((post) => (
                 <div key={post.id} className="post">
                     <div className="post_image_wrapper">
-                        <img src={post.photoUrl} onClick={() => handleOpenModal(post.photoUrl)} alt="Post" className="post_image"/>
+                        <img src={post.photoUrl} onClick={() => handleOpenModal(post.photoUrl)} alt="Post"
+                             className="post_image"/>
                     </div>
-                    <h3>{post.name.toUpperCase()}</h3>
+                    <h3 onClick={() => openPost(post.id)}>{post.name.toUpperCase()}</h3>
                     <p className="post__description">{post.description}</p>
                     <div className="post__author-date">
                         <a className="post__author">Автор: {users.find(user => user.id === post.userId)?.name || 'Не відомий'}</a>
@@ -129,7 +139,7 @@ const Posts: React.FC = () => {
                     </div>
                 </div>
             ))}
-            {showModal && <Modal imageUrl={modalImageUrl} onClose={handleCloseModal} />}
+            {showModal && <Modal imageUrl={modalImageUrl} onClose={handleCloseModal}/>}
         </div>
     );
 };

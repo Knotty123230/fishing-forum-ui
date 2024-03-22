@@ -1,6 +1,6 @@
 .post-page__container{
-    display:flex;
+    background-color: #cccccc;
+    height: 100%;
     justify-content: center;
     align-items: center;
-
 }
