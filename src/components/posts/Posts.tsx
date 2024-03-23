@@ -1,8 +1,7 @@
 import React, {useState} from "react";
-import "./Posts.css";
 import Modal from "../Modal.tsx";
-import Post from "./post-page/Post.tsx"
 import {useNavigate} from "react-router-dom";
+import "./Posts.css";
 
 interface Post {
     id: number;
@@ -121,10 +120,8 @@ const Posts: React.FC = () => {
         <div className="posts_container">
             {posts.map((post) => (
                 <div key={post.id} className="post">
-                    <div className="post_image_wrapper">
                         <img src={post.photoUrl} onClick={() => handleOpenModal(post.photoUrl)} alt="Post"
                              className="post_image"/>
-                    </div>
                     <h3 onClick={() => openPost(post.id)}>{post.name.toUpperCase()}</h3>
                     <p className="post__description">{post.description}</p>
                     <div className="post__author-date">

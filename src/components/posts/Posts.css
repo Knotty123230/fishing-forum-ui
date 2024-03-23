@@ -2,22 +2,21 @@
 .post {
     background-color: white;
     width: 1000px;
-    height: 240px;
+    height: 270px;
     padding: 20px 20px;
-    margin-top: 10px;
+    margin-top: 2px;
 }
-
 
 .post_image {
     cursor: pointer;
     display: block;
-    height: 200px;
+    height: 230px;
     width: 150px;
     max-width: 150px;
-    max-height: 200px;
+    max-height: 220px;
     float: left;
     padding: 2px;
-    margin-right: 10px;
+    margin-right: 20px;
     border-radius: 10px;
     margin-left: 10px;
 }
