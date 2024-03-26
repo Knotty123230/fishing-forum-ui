@@ -1,9 +1,10 @@
-import './App.css';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import AuthForm from "./components/auth/auth-form.tsx";
 import RegistrationForm from "./components/registration/registration-form.tsx";
 import PostsPage from "./components/posts/posts-page.tsx";
 import Post from "./components/posts/post-page/Post.tsx";
+import LeafletMap from "./components/map/LeafletMap.tsx";
+
 
 function App() {
     return (
@@ -14,6 +15,9 @@ function App() {
                     <Route path="/registration" element={<RegistrationForm />} />
                     <Route path="/posts" element={<PostsPage />} />
                     <Route path="/post" element={<Post />} />
+                    <Route path="/map" element={<LeafletMap label={""} tool={""} onMarkerClick={function(): void {
+                        throw new Error("Function not implemented.");
+                    } } />} />
                 </Routes>
             </Router>
         </div>
