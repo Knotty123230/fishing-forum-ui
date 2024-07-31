@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import {useLocation} from "react-router-dom";
+
 import "./Post.css"
 
 interface Post {
@@ -13,8 +13,7 @@ interface Post {
 }
 
 const Post: React.FC = () => {
-				const location = useLocation()
-				const [post, setPost] = useState<Post>(
+				const [post] = useState<Post>(
 								{
 												id: 1,
 												name: "Перший пост ццвфцвфцвфц",
@@ -24,10 +23,6 @@ const Post: React.FC = () => {
 												photoUrl: "public/1_preview-ozero.jpg",
 												date: "11.01.2024"
 								});
-				const handleLikePost = (postId: number) => {
-								const updatedPost = post.id === postId ? {...post, likes: post.likes + 1} : post;
-								setPost(updatedPost);
-				};
 
 
 				return (
